@@ -10,7 +10,7 @@ public class LectorArchivo {
     File archivo;
     FileReader fr;
     BufferedReader br;
-   InterfazGrafo grafo = new GraphMatrix();
+   InterfazGrafo grafo = new MatrizGrafo();
 
     
     public void obtenerArchivo(String direccion) throws FileNotFoundException{
@@ -37,7 +37,8 @@ public class LectorArchivo {
         br = new BufferedReader(fr);
         String linea;
 
-        while((linea=br.readLine())!=null){
+        while((linea=br.readLine())!=null)
+        {
             String[] tmp;
             tmp=linea.split(" ");
             grafo.addEdge(tmp[0], tmp[1], tmp[2]);
