@@ -4,12 +4,15 @@
  * and open the template in the editor.
  */
 
+import static java.lang.Math.E;
+import static java.lang.StrictMath.E;
+import static javafx.scene.input.KeyCode.V;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -161,6 +164,26 @@ public class InterfazGrafoTest {
 
         public int size() {
             return 0;
+        }
+
+        @Override
+        public void add(Object label) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public void addEdge(Object vtx1, Object vtx2, Object label) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public int getEdge(Object label1, Object label2) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public boolean contains(Object label) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
     }
     
