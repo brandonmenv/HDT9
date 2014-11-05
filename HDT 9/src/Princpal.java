@@ -12,10 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 import javax.swing.JFrame;
-/**
- *
- * @author Maria Fernanda Martinez, Adrian Martinez
- */
+
 public class Princpal {
     private static JFrame frame;	
 
@@ -31,8 +28,8 @@ public class Princpal {
         in.creandoInterfaz();
 		
       
-        /*
-        Floyd matriz = new Floyd();
+       /* 
+       Calculos matriz = new Calculos();
         matriz.caminoCorto();
         int seleccion;
         int opcion;
@@ -45,15 +42,15 @@ public class Princpal {
         while(seleccion!=4){
             
             System.out.println("\nMatriz de adyacencia\n");
-            matriz.D.show();
+            matriz.grafo.show();
             if(seleccion==1){
                 matriz.caminoCorto();
                 System.out.println("Ingrese el nombre de la ciudad de salida");
                 String ciudad1 = scan.next();
                 System.out.println("Ingrese el nombre de la ciudad de destino");
                 String ciudad2 = scan.next();
-                if(matriz.D.contains(ciudad1)&&matriz.D.contains(ciudad2)){
-                    System.out.println("\nLa ruta mas corta es: "+matriz.D.getEdge(ciudad1, ciudad2));
+                if(matriz.grafo.contains(ciudad1)&&matriz.grafo.contains(ciudad2)){
+                    System.out.println("\nLa ruta mas corta es: "+matriz.grafo.getEdge(ciudad1, ciudad2));
                     //FALTA MOSTRAR LAS CIUDADES INTERMEDIAS
                 }
             }
@@ -69,8 +66,8 @@ public class Princpal {
                     String ciudad1 = scan.next();
                     System.out.println("Ingrese el nombre de la ciudad de destino");
                     String ciudad2 = scan.next();
-                    if(matriz.D.contains(ciudad1)&&matriz.D.contains(ciudad2)){
-                        matriz.D.addEdge(ciudad1, ciudad2, 10000);
+                    if(matriz.grafo.contains(ciudad1)&&matriz.grafo.contains(ciudad2)){
+                        matriz.grafo.addEdge(ciudad1, ciudad2, 10000);
                     }
                 }
                 else if(opcion==2){
@@ -80,17 +77,17 @@ public class Princpal {
                     String ciudad2 = scan.next();
                     System.out.println("Ingrese la distancia entre las ciudades");
                     int distancia = scan.nextInt();
-                    if(matriz.D.contains(ciudad1)&&matriz.D.contains(ciudad2)){
-                        matriz.D.addEdge(ciudad1, ciudad2, distancia);
+                    if(matriz.grafo.contains(ciudad1)&&matriz.grafo.contains(ciudad2)){
+                        matriz.grafo.addEdge(ciudad1, ciudad2, distancia);
                     }
                     else{
-                        matriz.D.add(ciudad1);
-                        matriz.D.add(ciudad2);
-                        matriz.D.addEdge(ciudad1, ciudad2, distancia);
+                        matriz.grafo.add(ciudad1);
+                        matriz.grafo.add(ciudad2);
+                        matriz.grafo.addEdge(ciudad1, ciudad2, distancia);
                     }
                 }
                 matriz.caminoCorto();
-                matriz.D.show();
+                matriz.grafo.show();
             }
        
             System.out.println(" Presione 1 para buscar ruta mas corta entre dos ciudades ");
@@ -99,6 +96,6 @@ public class Princpal {
             System.out.println(" Presione 4 para Finalizar programa");
             seleccion = scan.nextInt();
         }
-     */   
+     */  
     }
 }     

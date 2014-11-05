@@ -45,11 +45,15 @@ public class InterfazGrafoTest {
     @Test
     public void testAdd() {
         System.out.println("add");
-        Object label = null;
+        Object ciudad1 = "Guatemala";
+        Object ciudad2= "Flores";
+        Object distancia = 238;
         InterfazGrafo instance = new InterfazGrafoImpl();
-        instance.add(label);
+        instance.add(ciudad1);
+        instance.add(ciudad2);
+        instance.add(distancia);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**
@@ -58,13 +62,13 @@ public class InterfazGrafoTest {
     @Test
     public void testAddEdge() {
         System.out.println("addEdge");
-        Object vtx1 = null;
-        Object vtx2 = null;
-        Object label = null;
+        Object vtx1 = "Guatemala";
+        Object vtx2 = "Flores";
+        Object label = 0;
         InterfazGrafo instance = new InterfazGrafoImpl();
         instance.addEdge(vtx1, vtx2, label);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -76,7 +80,7 @@ public class InterfazGrafoTest {
         InterfazGrafo instance = new InterfazGrafoImpl();
         instance.show();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -87,11 +91,11 @@ public class InterfazGrafoTest {
         System.out.println("get");
         int label = 0;
         InterfazGrafo instance = new InterfazGrafoImpl();
-        Object expResult = null;
+        Object expResult = "Guatemala";
         Object result = instance.get(label);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -100,14 +104,14 @@ public class InterfazGrafoTest {
     @Test
     public void testGetEdge() {
         System.out.println("getEdge");
-        Object label1 = null;
-        Object label2 = null;
+        Object label1 = "Guatemala";
+        Object label2 = "Flores";
         InterfazGrafo instance = new InterfazGrafoImpl();
         int expResult = 0;
         int result = instance.getEdge(label1, label2);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**
@@ -122,7 +126,7 @@ public class InterfazGrafoTest {
         boolean result = instance.contains(label);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -136,29 +140,29 @@ public class InterfazGrafoTest {
         int result = instance.size();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     public class InterfazGrafoImpl implements InterfazGrafo {
 
-        public void add(V label) {
+        public void add(Object label) {
         }
 
-        public void addEdge(V vtx1, V vtx2, E label) {
+        public void addEdge(Object vtx1, Object vtx2, Object label) {
         }
 
         public void show() {
         }
 
-        public V get(int label) {
+        public Object get(int label) {
             return null;
         }
 
-        public int getEdge(V label1, V label2) {
+        public int getEdge(Object label1, Object label2) {
             return 0;
         }
 
-        public boolean contains(V label) {
+        public boolean contains(Object label) {
             return false;
         }
 
@@ -166,25 +170,7 @@ public class InterfazGrafoTest {
             return 0;
         }
 
-        @Override
-        public void add(Object label) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        @Override
-        public void addEdge(Object vtx1, Object vtx2, Object label) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        @Override
-        public int getEdge(Object label1, Object label2) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        @Override
-        public boolean contains(Object label) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
+        
     }
     
 }
