@@ -23,7 +23,7 @@ public class Calculos {
     public Calculos(){
         
         try {
-            archivo.obtenerArchivo("");
+            archivo.obtenerArchivo("C:\\Users\\Alejo\\Documents\\4to Semestre\\Algoritmos\\HDT9\\HDT 9\\src\\cuidades.txt");
             archivo.arregloNombres();
             grafo = archivo.matrizCostos();
             matriz = new int[25][25];
