@@ -46,12 +46,8 @@ public class InterfazGrafoTest {
     public void testAdd() {
         System.out.println("add");
         Object ciudad1 = "Guatemala";
-        Object ciudad2= "Flores";
-        Object distancia = 238;
         InterfazGrafo instance = new InterfazGrafoImpl();
         instance.add(ciudad1);
-        instance.add(ciudad2);
-        instance.add(distancia);
         // TODO review the generated test code and remove the default call to fail.
        // fail("The test case is a prototype.");
     }
