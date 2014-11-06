@@ -42,11 +42,13 @@ public class MatrizGrafoTest {
     @Test
     public void testAdd() {
         System.out.println("add");
-        Object label = null;
+        Object label = "Guatemala";
+        Object label1 = "Guatemala";
         MatrizGrafo instance = new MatrizGrafo();
         instance.add(label);
+        instance.add(label1);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -55,13 +57,17 @@ public class MatrizGrafoTest {
     @Test
     public void testAddEdge() {
         System.out.println("addEdge");
-        Object vtx1 = null;
-        Object vtx2 = null;
-        Object label = null;
+        Object vtx1 = "Guatemala";
+        Object vtx2 = "Flores";
+        Object label = 250;
+        Object vtx3="Flores";
+        Object vtx4 = "Xela";
+        Object label1 =310;
         MatrizGrafo instance = new MatrizGrafo();
         instance.addEdge(vtx1, vtx2, label);
+        instance.addEdge(vtx3, vtx4, label1);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+     //   fail("The test case is a prototype.");
     }
 
     /**
@@ -73,7 +79,7 @@ public class MatrizGrafoTest {
         MatrizGrafo instance = new MatrizGrafo();
         instance.show();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -84,11 +90,11 @@ public class MatrizGrafoTest {
         System.out.println("get");
         int label = 0;
         MatrizGrafo instance = new MatrizGrafo();
-        Object expResult = null;
+        Object expResult = "Guatemala";
         Object result = instance.get(label);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -97,14 +103,14 @@ public class MatrizGrafoTest {
     @Test
     public void testGetEdge() {
         System.out.println("getEdge");
-        Object label1 = null;
-        Object label2 = null;
+        Object label1 ="Guatemala";
+        Object label2 = "Flores";
         MatrizGrafo instance = new MatrizGrafo();
-        int expResult = 0;
+        int expResult = 230;
         int result = instance.getEdge(label1, label2);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**
@@ -113,13 +119,13 @@ public class MatrizGrafoTest {
     @Test
     public void testContains() {
         System.out.println("contains");
-        Object label = null;
+        Object label = "Guatemala";
         MatrizGrafo instance = new MatrizGrafo();
         boolean expResult = false;
         boolean result = instance.contains(label);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -129,11 +135,11 @@ public class MatrizGrafoTest {
     public void testSize() {
         System.out.println("size");
         MatrizGrafo instance = new MatrizGrafo();
-        int expResult = 0;
+        int expResult = 3;
         int result = instance.size();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }
