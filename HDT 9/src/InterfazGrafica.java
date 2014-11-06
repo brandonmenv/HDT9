@@ -14,7 +14,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 
-public class InterfazGrafica extends JPanel implements ActionListener,ItemListener{
+public class InterfazGrafica extends JPanel implements ActionListener{
 	/**ATRIBUTOS**/
 	private static JFrame frame;										//frame principal de la GUI y frame de control de errores
 	private JTextArea areatexto; 
@@ -22,23 +22,31 @@ public class InterfazGrafica extends JPanel implements ActionListener,ItemListen
 	private static String comRutaMasCorta="rutamascorta",
                 comCentroGrafo="comcentrografo",
                 comModificarGrafo="commodificargrafo";
-	
+	Calculos matriz;
 	/**
 	* Constructor con un parametro que es un frame de control de errores
 	* @param v El parámetro v es un frame que sirve para mostrarle errores 
         * de ingreso al usuario
 	*/
 	public InterfazGrafica(JFrame v){		
-		//Construyendo paneles de la interfaz				
-		JComponent panelBanner=panelBanner();											
-		JComponent panelBotones=panelBotones();
-		JComponent panelResultado=panelResultado();
-		
-		add(panelBanner);
-		add(panelBotones);
-		add(panelResultado);
-		
+            matriz = new Calculos();
+            matriz.caminoCorto();
+            
 
+
+            //Construyendo paneles de la interfaz				
+            JComponent panelBanner=panelBanner();											
+            JComponent panelBotones=panelBotones();
+            JComponent panelResultado=panelResultado();
+
+            add(panelBanner);
+            add(panelBotones);
+            add(panelResultado);
+
+            areatexto.setText("\nMatriz de adyacencia\n"+matriz.grafo.show()+"\n");
+           
+            
+            
 	}	
 	
 	/**
@@ -53,6 +61,7 @@ public class InterfazGrafica extends JPanel implements ActionListener,ItemListen
             btonRutaMasCorta = new JButton("Ruta Mas corta");
             btonRutaMasCorta.setActionCommand(comRutaMasCorta);
             btonRutaMasCorta.addActionListener(this);												//Asignando listener                        
+            
             btonCentroGrafo = new JButton ("Centro del Grafo");
             btonCentroGrafo.setActionCommand(comCentroGrafo);
             btonCentroGrafo.addActionListener(this);												//Asignando listener                        
@@ -114,8 +123,92 @@ public class InterfazGrafica extends JPanel implements ActionListener,ItemListen
 	* @see ActionListener
 	*/						  
 	public void actionPerformed(ActionEvent e){									//Empieza el control de eventos
-		String comando = e.getActionCommand();										//String del comando de accion			
-		
+            String comando = e.getActionCommand();										//String del comando de accion			
+            if(comando.equals(comRutaMasCorta)){
+                matriz.caminoCorto();
+                String ciudad1 = (String)JOptionPane.showInputDialog(null,
+                "Ingrese el nombre de la ciudad de salida:\n",
+                "Ciudad De salida",
+                JOptionPane.PLAIN_MESSAGE);
+                
+                String ciudad2 = (String)JOptionPane.showInputDialog(null,
+                "Ingrese el nombre de la ciudad de destino:\n",
+                "Ciudad De destino",
+                JOptionPane.PLAIN_MESSAGE);
+         
+                if(matriz.grafo.contains(ciudad1)&&matriz.grafo.contains(ciudad2)){                    
+                    JOptionPane.showMessageDialog(null,"\nLa ruta mas corta es: "+matriz.grafo.getEdge(ciudad1, ciudad2),
+                    "Centro Grafo",JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+            
+            if(comando.equals(comCentroGrafo)){
+                JOptionPane.showMessageDialog(null,matriz.centroGrafo(),
+                "Centro Grafo",JOptionPane.INFORMATION_MESSAGE);
+                
+            }
+            
+            if(comando.equals(comModificarGrafo)){
+                String eleccion = (String)JOptionPane.showInputDialog(null,
+                "Pesione 1 si hay interrupcion de trafico entre dos ciudades:"
+                        + "\n Presione 2 Para establecer coneccion entre dos nuevas ciudades:",
+                "Mensaje",
+                JOptionPane.PLAIN_MESSAGE);
+                
+                if(eleccion.equals("1")){
+                   String ciudadSalida = (String)JOptionPane.showInputDialog(null,
+                    "Ingrese la ciudad de salida: ",
+                    "Ciudad Salida",
+                    JOptionPane.PLAIN_MESSAGE);
+                   
+                   String ciudadDestino = (String)JOptionPane.showInputDialog(null,
+                    "Ingrese la ciudad de destino: ",
+                    "Ciudad Destino",
+                    JOptionPane.PLAIN_MESSAGE);
+                   
+                   if(matriz.grafo.contains(ciudadSalida)&&matriz.grafo.contains(ciudadDestino)){
+                        matriz.grafo.addEdge(ciudadSalida, ciudadDestino, 10000);
+                    }
+                }
+
+                if(eleccion.equals("2")){
+                     String ciudadSalida = (String)JOptionPane.showInputDialog(null,
+                    "Ingrese la ciudad de salida: ",
+                    "Ciudad Salida",
+                    JOptionPane.PLAIN_MESSAGE);
+                   
+                   String ciudadDestino = (String)JOptionPane.showInputDialog(null,
+                    "Ingrese la ciudad de destino: ",
+                    "Ciudad Destino",
+                    JOptionPane.PLAIN_MESSAGE);
+                   String distancia = (String)JOptionPane.showInputDialog(null,
+                    "Ingrese la distancia entre las dos ciudades ingresadas: ",
+                    "Distancia",
+                    JOptionPane.PLAIN_MESSAGE);
+                   
+                    if(matriz.grafo.contains(ciudadSalida)&&matriz.grafo.contains(ciudadDestino)){
+                        matriz.grafo.addEdge(ciudadSalida, ciudadDestino, distancia);
+                    }
+                    else{
+                        matriz.grafo.add(ciudadSalida);
+                        matriz.grafo.add(ciudadDestino);
+                        matriz.grafo.addEdge(ciudadSalida, ciudadDestino, distancia);
+                    }        
+                    matriz.caminoCorto();
+                    areatexto.setText("\nMatriz de adyacencia\n"+matriz.grafo.show()+"\n");
+           
+                    
+                }
+                
+            }
+            
+            
+            
+      
+            
+            
+            
+            
 		
 	}//Final de gestionador de eventos	
 
@@ -147,15 +240,5 @@ public class InterfazGrafica extends JPanel implements ActionListener,ItemListen
 		frame.setVisible(true);	
 	}
 
-	
-	/*
-	 * Metodo donde se controlan los indices del Combo Box
-	 * Ademas en cada indice se muestra el resultado deseado segun la implementacion escogida por le usuario
-	 * (non-Javadoc)
-	 * @see java.awt.event.ItemListener#itemStateChanged(java.awt.event.ItemEvent)
-	 */
-	public void itemStateChanged(ItemEvent a){ 
 
-			
-	}
 }

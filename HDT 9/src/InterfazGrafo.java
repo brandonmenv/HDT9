@@ -14,7 +14,7 @@ public interface InterfazGrafo<V,E> {
     // pre: vtx1 and vtx2 are labels of existing vertices
     // post: an edge (possibly directed) is inserted between
     // vtx1 and vtx2.
-    public void show();
+    public String show();
 
     public V get(int label);
     // post: returns actual label of indicated vertex

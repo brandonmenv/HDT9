@@ -16,86 +16,10 @@ import javax.swing.JFrame;
 public class Princpal {
     private static JFrame frame;	
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args){
-        	//Frame de control
-
-
+        //Frame de control
         InterfazGrafica in = new InterfazGrafica(frame);
         JFrame.setDefaultLookAndFeelDecorated(true);
         in.creandoInterfaz();
-		
-      
-       /* 
-       Calculos matriz = new Calculos();
-        matriz.caminoCorto();
-        int seleccion;
-        int opcion;
-        Scanner scan = new Scanner(System.in);
-        System.out.println(" Presione 1 para buscar ruta mas corta entre dos ciudades ");
-        System.out.println(" Presione 2 para el centro del grafo");
-        System.out.println(" Presione 3 para Modificar un grafo ");
-        System.out.println(" Presione 4 para Finalizar programa");
-        seleccion = scan.nextInt();
-        while(seleccion!=4){
-            
-            System.out.println("\nMatriz de adyacencia\n");
-            matriz.grafo.show();
-            if(seleccion==1){
-                matriz.caminoCorto();
-                System.out.println("Ingrese el nombre de la ciudad de salida");
-                String ciudad1 = scan.next();
-                System.out.println("Ingrese el nombre de la ciudad de destino");
-                String ciudad2 = scan.next();
-                if(matriz.grafo.contains(ciudad1)&&matriz.grafo.contains(ciudad2)){
-                    System.out.println("\nLa ruta mas corta es: "+matriz.grafo.getEdge(ciudad1, ciudad2));
-                    //FALTA MOSTRAR LAS CIUDADES INTERMEDIAS
-                }
-            }
-            else if(seleccion==2){
-                matriz.centroGrafo();
-            }
-            else if(seleccion==3){
-                System.out.println("1. Hay interrupcion de trafico entre un par de ciudades");
-                System.out.println("2. Establecer nueva conexion");
-                opcion = scan.nextInt();
-                if(opcion==1){
-                    System.out.println("Ingrese el nombre de la ciudad de salida");
-                    String ciudad1 = scan.next();
-                    System.out.println("Ingrese el nombre de la ciudad de destino");
-                    String ciudad2 = scan.next();
-                    if(matriz.grafo.contains(ciudad1)&&matriz.grafo.contains(ciudad2)){
-                        matriz.grafo.addEdge(ciudad1, ciudad2, 10000);
-                    }
-                }
-                else if(opcion==2){
-                    System.out.println("Ingrese el nombre de la ciudad de salida");
-                    String ciudad1 = scan.next();
-                    System.out.println("Ingrese el nombre de la ciudad de destino");
-                    String ciudad2 = scan.next();
-                    System.out.println("Ingrese la distancia entre las ciudades");
-                    int distancia = scan.nextInt();
-                    if(matriz.grafo.contains(ciudad1)&&matriz.grafo.contains(ciudad2)){
-                        matriz.grafo.addEdge(ciudad1, ciudad2, distancia);
-                    }
-                    else{
-                        matriz.grafo.add(ciudad1);
-                        matriz.grafo.add(ciudad2);
-                        matriz.grafo.addEdge(ciudad1, ciudad2, distancia);
-                    }
-                }
-                matriz.caminoCorto();
-                matriz.grafo.show();
-            }
-       
-            System.out.println(" Presione 1 para buscar ruta mas corta entre dos ciudades ");
-            System.out.println(" Presione 2 para el centro del grafo");
-            System.out.println(" Presione 3 para Modificar un grafo ");
-            System.out.println(" Presione 4 para Finalizar programa");
-            seleccion = scan.nextInt();
-        }
-     */  
     }
 }     

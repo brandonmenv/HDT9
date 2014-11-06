@@ -23,7 +23,9 @@ public class Calculos {
     public Calculos(){
         
         try {
-            archivo.obtenerArchivo("C:\\Users\\Alejo\\Documents\\4to Semestre\\Algoritmos\\HDT9\\HDT 9\\src\\cuidades.txt");
+            String dir = System.getProperty("user.dir");
+            archivo.obtenerArchivo(dir+"\\cuidades.txt");
+            
             archivo.arregloNombres();
             grafo = archivo.matrizCostos();
             matriz = new int[25][25];
@@ -42,7 +44,8 @@ public class Calculos {
         }
     }
     
-    public void caminoCorto(){
+    public String caminoCorto(){
+        String resultado="";
         for(int k=0;k<archivo.grafo.size();k++){
             for(int i=0;i<archivo.grafo.size();i++){
                 for(int j=0;j<archivo.grafo.size();j++){
@@ -53,10 +56,11 @@ public class Calculos {
                 }
             }
         }
-        grafo.show();
+        return resultado=grafo.show();
     }
     
-    public void centroGrafo(){
+    public String centroGrafo(){
+        String centrografo=null;
         caminoCorto();
         int n=0;       
         for(int i=0;i<grafo.size();i++){
@@ -83,7 +87,7 @@ public class Calculos {
                 minimo=num1;
             }
         }
-        System.out.println("\nEl centro del grafo es: "+grafo.get(centroGrafo)+"\n");
+        return centrografo="\nEl centro del grafo es: "+grafo.get(centroGrafo)+"\n";
         
     }
 }

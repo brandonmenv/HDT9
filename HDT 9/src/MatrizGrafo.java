@@ -44,17 +44,17 @@ public class MatrizGrafo<V,E> implements InterfazGrafo {
     }
 
     @Override
-    public void show() 
+    public String show() 
     {
-        
+        String stringMatriz="";
          for(int i=0;i<vertices.size();i++){
             for(int j=0;j<vertices.size();j++)
             {
-                System.out.print(""+arcos[i][j]+" ");
+                stringMatriz+=""+arcos[i][j]+" \t";
             }
-   
+            stringMatriz+="\n";
         }   
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return stringMatriz;
     }
 
     @Override

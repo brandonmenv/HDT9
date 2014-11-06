@@ -1,5 +1,5 @@
-Guatemala San Marcos 259
-Guatemala Flores 310
-Guatemala Quetzaltenango  209
-Guatemala Antigua 61
-Antigua Retaulehu 100
+Guatemala Sanmarcos 50
+Guatemala Flores 20
+Guatemala Quetzaltenango 80
+Antigua Guatemala 35
+Huehuetenango Retaulehu 30
