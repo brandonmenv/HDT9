@@ -59,13 +59,9 @@ public class MatrizGrafoTest {
         System.out.println("addEdge");
         Object vtx1 = "Guatemala";
         Object vtx2 = "Flores";
-        Object label = 250;
-        Object vtx3="Flores";
-        Object vtx4 = "Xela";
-        Object label1 =310;
+        Object label = "250";
         MatrizGrafo instance = new MatrizGrafo();
-        instance.addEdge(vtx1, vtx2, label);
-        instance.addEdge(vtx3, vtx4, label1);
+        instance.addEdge("Guatemala", "Flores", 310);
         // TODO review the generated test code and remove the default call to fail.
      //   fail("The test case is a prototype.");
     }
@@ -121,7 +117,7 @@ public class MatrizGrafoTest {
         System.out.println("contains");
         Object label = "Guatemala";
         MatrizGrafo instance = new MatrizGrafo();
-        boolean expResult = false;
+        boolean expResult = false   ;
         boolean result = instance.contains(label);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
